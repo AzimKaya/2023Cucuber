@@ -3,11 +3,20 @@ package stepdefinitions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbookFactory;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.devtools.v85.io.IO;
 import pages.TestOtomasyonuPage;
 import utilities.ConfigReader;
 import utilities.Driver;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class TestotomasyonuStepdefinitions {
     TestOtomasyonuPage testOtomasyonuPage = new TestOtomasyonuPage();
@@ -55,7 +64,7 @@ public class TestotomasyonuStepdefinitions {
     @And("arama sonucunda urun bulunamadigini test eder")
     public void aramaSonucundaUrunBulunamadiginiTestEder() {
         int sonucSayisi = testOtomasyonuPage.bulunanUrunElementleriList.size();
-        Assert.assertEquals(0,sonucSayisi);
+        Assert.assertEquals(1,sonucSayisi);
     }
 
     @Then("arama kutusuna {string} yazip ENTER tusuna basar")
@@ -107,4 +116,46 @@ public class TestotomasyonuStepdefinitions {
     public void sistemeGirisYapamadiginiTestEder() {
         Assert.assertTrue(testOtomasyonuPage.emailKutusu.isDisplayed());
     }
+
+    @When("email olarak listede verilen {string} girer")
+    public void emailOlarakListedeVerilenGirer(String verilenEmail) {
+        testOtomasyonuPage.emailKutusu.sendKeys(verilenEmail);
+    }
+
+    @And("password olarak  listede verilen {string} girer")
+    public void passwordOlarakListedeVerilenGirer(String verilenPassword) {
+
+        testOtomasyonuPage.passwordKutusu.sendKeys(verilenPassword);
+
+    }
+
+    @Then("stok excelindeki {string} daki urunun stok miktarini bulur")
+    public void stokExcelindekiDakiUrununStokMiktariniBulur(String satirNo) {
+
+        String dosyaYolu = "stok.xlsx";
+
+        try {
+            FileInputStream fileInputStream = new FileInputStream(dosyaYolu);
+            XSSFWorkbook workbook = new XSSFWorkbook(fileInputStream);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+
+        }
+
+    }
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -5,14 +5,18 @@ import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
+
+
 @CucumberOptions(
-    plugin = "html:target/cucumber-reports/rapor1.html",
+        plugin = {"html:target/cucumber-reports/rapor.html",
+                "json:target/json-reports/cucumber.json",
+                "junit:target/xml-report/cucumber.xml"},
     features = "src/test/resources/features", // calisacak Feature/Scenario'lar nerede ?
     glue = "stepdefinitions" ,    // calisacak Feature/Scenario'larin kodlari nerede?
     tags = "@wip",  // hangi Feature/Scenario'lar calisacak ?
-    dryRun = true // true yapilirsa testi calistirmadan eksik adimlari verir
+    dryRun = false // true yapilirsa testi calistirmadan eksik adimlari verir
                     // testleri calistirirken dryRun = false olmalidir
-)
+     )
 
 public class Runner {
 
@@ -36,5 +40,15 @@ public class Runner {
 
     build islemini @CucumberOptions notasyonu halleder
 
+
+ */
+/*
+
+git init
+git add.
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/AzimKaya/2023Cucuber.git
+git push -u origin main
 
  */

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="9.574" tests="2" skipped="0" failures="1" errors="0">
+<testcase classname="US01TestOtamoation_Test25" name="TC25 Verify that page is scrolled" time="5.16">
+<failure/>
+<system-out><![CDATA[
+Given Navigate to go url automationexercise.................................passed
+When Verify that home page is visible successfully..........................passed
+Then Scroll down page to bottom.............................................passed
+Then Verify SUBSCRIPTION is visible.........................................undefined
+Then Click on arrow at bottom right side to move upward.....................skipped
+And Verify that page is scrolled up and Full-Fledged practice website for Automation Engineers' text is visible on screen.skipped
+]]></system-out>
+</testcase>
+<testcase classname="US01TestOtamoation_Test3" name="TC3 Verify that page is scrolled" time="4.177">
+<system-out><![CDATA[
+Given Navigate to go url automationexercise.................................passed
+When Verify that home page is visible successfully..........................passed
+Then Click on Signup / Login button.........................................passed
+Then Verify Login to your account  is visible...............................passed
+Then Enter incorrect email address and password.............................passed
+Then Click login button.....................................................passed
+And Verify error 'Your email or password is incorrect!' is visible..........passed
+]]></system-out>
+</testcase>
+</testsuite>
